@@ -1,0 +1,7 @@
+#! /bin/bash 
+
+#Author: Batel Peretz
+#Description: This script will delete files older then 90 days 
+
+find /home/batel/Desktop/bash_scripts -mtime +90 -exec rm () \;   # mv () ().old \: --> will rename the name of old files
+
