@@ -1,0 +1,23 @@
+#! /bin/bash
+
+#Author: Batel Peretz
+#Description: Backup /etc and /var filesystem 
+
+
+#create back-up
+tar cvf /tmp/backup.tar /etc /var
+
+#compress back-up
+gzip /tmp/backup.tar
+
+find backup.tar.gz -mtime -1 -type f -print &> /dev/null 
+
+if [ $? -eq 0 ]
+	then
+	echo "Back-up was creates"
+	echo
+	echo Archiving Backup
+	#scp /tmp/backup.tar.gz root@2.53.189.233:/~
+	else
+	echo Backup failed
+fi
