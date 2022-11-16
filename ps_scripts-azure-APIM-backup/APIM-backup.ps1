@@ -8,3 +8,5 @@ $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "DevGroup" -Stora
 $storgeContext = NewAzureStorageContext -StorageAccountName "BatelStorage" -AzureRmStorageAccountKey $storageKey
 #Creating New container in the existing storge account - The container will host APIM backup-blob
 New-AzureStorageContainer -Name "apimbackupscontainer" -Permissiom Off -Context $storgeContext
+#Create BackUp
+Backup-AzureApiManagment -ResourceGroupName "DevGroup" -Name "APIM-BACKUP-DEMO-02" -storgeContext $storgeContext -TargetContainerName "apimbackupscontainer" -TargetBlobName "apimbackups01.BatelStorage"
